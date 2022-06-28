@@ -1,0 +1,23 @@
+<div class="card cd m-4" style="width: 18rem;">
+  <img src="<%= @product.image %>" />
+  <div class="card-body">
+    <h5 class="card-title"><%= @product.name %> - $<%= @product.price %></h5>
+    <p class="card-text"><%= @product.description %></p>
+    <%= link to: Routes.foods_path(@conn, :edit, @product.id), method: :get, class: "btn btn-primary rounded" do %>
+        <i class="fa-solid fa-pen-to-square"></i> Update
+    <%= end %>
+    <%= link to: Routes.foods_path(@conn, :delete, @product.id), method: :delete, class: "btn btn-danger rounded bd", onclick: "myAlert();" do %>
+        <i class="fa-regular fa-trash-can"></i> Delete
+    <%= end %>
+  </div>
+</div>
+<script>
+function myAlert() {
+  var mensaje = window.confirm("Are you sure you want to delete this food?");
+  if(mensaje === true){
+
+  }else{
+       event.preventDefault();
+  }
+}
+</script>

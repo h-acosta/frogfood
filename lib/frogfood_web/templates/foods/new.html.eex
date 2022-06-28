@@ -1,0 +1,40 @@
+<div class="card text-start fd">
+  <div class=" td text-center text-white">
+    <h2 class="mt-3">Add Product</h2>
+    <a class="btn btn-outline-secondary rounded-circle cb" href="/foods"><i class="fa-solid fa-xmark "></i></a>
+  </div>
+  <div class="card-body fc">
+     <%= form_for @changeset, Routes.foods_path(@conn, :create ), [as: :foods, id: "foods-form"], fn f -> %>
+  <div class="form-group">
+    <%= label f, :name, class: "control-label" %>
+    <%= text_input f, :name, class: "form-control" %>
+    <%= error_tag f, :name %>
+  </div>
+
+  <div class="form-group mt-2">
+    <%= label f, :price, class: "control-label" %>
+    <%= text_input f, :price, class: "form-control" %>
+    <%= error_tag f, :price %>
+  </div>
+
+  <div class="form-group mt-2">
+    <%= label f, :description, class: "control-label" %>
+    <%= text_input f, :description, class: "form-control" %>
+    <%= error_tag f, :description %>
+  </div>
+
+  <div class="form-group mt-2">
+      <%= label f, :image, class: "control-label M-4" %>
+     <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">URL</span>
+      <%= text_input f, :image, class: "form-control", placeholder: "https://www.cocinacaserayfacil.net/wp-content/uploads/2020/04/Recetas-de-comidas-para-ni%C3%B1os.jpg" %>
+     </div>
+     <%= error_tag f, :image %>
+  </div>
+
+  <%= submit "Add", class: "btn btn-primary mt-3" %>
+<% end %>
+  </div>
+  <div class="tf text-muted">
+  </div>
+</div>
